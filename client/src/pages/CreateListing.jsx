@@ -131,7 +131,7 @@ export default function CreateListing() {
       if (Number(formData.regularPrice) < Number(formData.discountPrice)) return setError('Discount price must be lower than regular price!');
       setLoading(true);
       setError(false);
-      const res = await fetch('/api/listing/create', {
+      const res = await fetch('/api/listings/create', {
         method: 'POST',
         headers:{
           'Content-Type': 'application/json',
@@ -146,7 +146,7 @@ export default function CreateListing() {
       if (data.success == false){
         setError(data.message);
       }
-      navigate(`/listing/${data._id}`)
+      navigate(`/listings/${data._id}`)
     } catch (error) {
       setError(error.message);
       setLoading(false);
